@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class TasksEntity(
+data class TaskEntity(
     val task: String,
     val productivity: Int,
     val dateStart: Long,

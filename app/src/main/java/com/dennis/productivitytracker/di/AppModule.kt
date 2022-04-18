@@ -27,7 +27,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideProdTrackerRepo(prodTrackerDB: ProdTrackerDB): ProdTrackerRepo {
-        return ProdTrackerRepoImpl(prodTrackerDB.prodTrackerDao)
+    fun provideProdTrackerRepo(db: ProdTrackerDB): ProdTrackerRepo {
+        return ProdTrackerRepoImpl(db.dao)
     }
 }

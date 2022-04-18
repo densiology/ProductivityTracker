@@ -11,5 +11,5 @@ import com.dennis.productivitytracker.data.entities.TaskEntity
 )
 
 abstract class ProdTrackerDB : RoomDatabase() {
-    abstract val prodTrackerDao: ProdTrackerDao
+    abstract val dao: ProdTrackerDao
 }

@@ -27,7 +27,7 @@ class CalendarListViewModel @Inject constructor(
                 sendUiEvent(UiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskId=${event.task.id}"))
             }
             is CalendarListEvent.OnAddTaskClick -> {
-                sendUiEvent(UiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskId=${event.task.id}"))
+                sendUiEvent(UiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskDate=${event.task.dateStart}"))
             }
         }
     }

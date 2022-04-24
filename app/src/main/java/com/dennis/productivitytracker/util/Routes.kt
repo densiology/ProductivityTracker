@@ -5,5 +5,4 @@ object Routes {
     const val COMMON_TASK_LIST = "common_task_list"
     const val ADD_EDIT_TASK = "add_edit_task"
     const val ADD_EDIT_COMMON_TASK = "add_edit_common_task"
-    const val SETTINGS = "settings"
 }

@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CalendarListViewModel @Inject constructor(
+class CalendarListVM @Inject constructor(
     private val repository: ProdTrackerRepo
 ) : ViewModel() {
 

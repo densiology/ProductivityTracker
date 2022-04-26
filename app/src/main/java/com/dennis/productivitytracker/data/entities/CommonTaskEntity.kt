@@ -1,9 +1,11 @@
 package com.dennis.productivitytracker.data.entities
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Entity(primaryKeys = ["task", "productivity"])
+@Entity
 data class CommonTaskEntity(
     val task: String,
-    val rating: Int
+    val rating: Int,
+    @PrimaryKey val id: Int? = null
 )

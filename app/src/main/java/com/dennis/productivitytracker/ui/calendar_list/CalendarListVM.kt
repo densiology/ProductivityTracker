@@ -29,6 +29,10 @@ class CalendarListVM @Inject constructor(
             is CalendarListEvent.OnAddTaskClick -> {
                 sendUiEvent(OneTimeUiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskDate=${event.task.date}"))
             }
+            is CalendarListEvent.OnCommonTaskListClick -> {
+                sendUiEvent(OneTimeUiEvent.Navigate(Routes.COMMON_TASK_LIST))
+            }
+
         }
     }
 

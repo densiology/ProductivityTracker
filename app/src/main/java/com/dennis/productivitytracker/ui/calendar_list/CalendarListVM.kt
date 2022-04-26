@@ -18,8 +18,8 @@ class CalendarListVM @Inject constructor(
 
     val tasks = repository.getTasks()
 
-    private val _uiEvent = Channel<OneTimeUiEvent>()
-    val uiEvent = _uiEvent.receiveAsFlow()
+    private val _oneTimeUiEvent = Channel<OneTimeUiEvent>()
+    val oneTimeUiEvent = _oneTimeUiEvent.receiveAsFlow()
 
     fun onEvent(event: CalendarListEvent) {
         when (event) {
@@ -27,7 +27,7 @@ class CalendarListVM @Inject constructor(
                 sendUiEvent(OneTimeUiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskId=${event.task.id}"))
             }
             is CalendarListEvent.OnAddTaskClick -> {
-                sendUiEvent(OneTimeUiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskDate=${event.task.date}"))
+                sendUiEvent(OneTimeUiEvent.Navigate(Routes.ADD_EDIT_TASK + "?taskDate=${event.date}"))
             }
             is CalendarListEvent.OnCommonTaskListClick -> {
                 sendUiEvent(OneTimeUiEvent.Navigate(Routes.COMMON_TASK_LIST))
@@ -38,7 +38,7 @@ class CalendarListVM @Inject constructor(
 
     private fun sendUiEvent(event: OneTimeUiEvent) {
         viewModelScope.launch {
-            _uiEvent.send(event)
+            _oneTimeUiEvent.send(event)
         }
     }
 }

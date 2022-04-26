@@ -15,7 +15,7 @@ fun CalendarListScreen(
 ) {
     val scaffoldState = rememberScaffoldState()
     LaunchedEffect(key1 = true) {
-        viewModel.uiEvent.collect { event ->
+        viewModel.oneTimeUiEvent.collect { event ->
             when (event) {
                 is OneTimeUiEvent.Navigate -> onNavigate(event)
                 else -> Unit

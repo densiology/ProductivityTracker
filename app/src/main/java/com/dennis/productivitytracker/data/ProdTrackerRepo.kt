@@ -14,7 +14,11 @@ interface ProdTrackerRepo {
 
     suspend fun deleteCommonTask(commonTask: CommonTaskEntity)
 
+    fun getTaskById(id: Int): TaskEntity?
+
     fun getTasks(): Flow<List<TaskEntity>>
+
+    fun getCommonTaskById(id: Int): CommonTaskEntity?
 
     fun getCommonTasks(): Flow<List<CommonTaskEntity>>
 }

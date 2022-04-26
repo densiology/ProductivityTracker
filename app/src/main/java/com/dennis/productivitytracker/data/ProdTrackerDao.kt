@@ -20,8 +20,14 @@ interface ProdTrackerDao {
     @Delete
     suspend fun deleteCommonTask(commonTask: CommonTaskEntity)
 
+    @Query("SELECT * FROM TaskEntity WHERE id = :id")
+    fun getTaskById(id: Int): TaskEntity?
+
     @Query("SELECT * FROM TaskEntity")
     fun getTasks(): Flow<List<TaskEntity>>
+
+    @Query("SELECT * FROM CommonTaskEntity WHERE id = :id")
+    fun getCommonTaskById(id: Int): CommonTaskEntity?
 
     @Query("SELECT * FROM CommonTaskEntity")
     fun getCommonTasks(): Flow<List<CommonTaskEntity>>

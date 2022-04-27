@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.dennis.productivitytracker.ui.add_edit_common_task.AddEditCommonTaskScreen
 import com.dennis.productivitytracker.ui.calendar_list.CalendarListScreen
 import com.dennis.productivitytracker.ui.common_task_list.CommonTaskListScreen
 import com.dennis.productivitytracker.ui.theme.ProductivityTrackerTheme
@@ -62,7 +63,11 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     ) {
-                        // TODO add AddEditCommonTask composable in NavHost
+                        AddEditCommonTaskScreen(
+                            onPopBackStack = {
+                                navController.popBackStack()
+                            }
+                        )
                     }
                 }
             }

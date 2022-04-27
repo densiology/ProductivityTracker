@@ -4,6 +4,10 @@ import com.dennis.productivitytracker.R
 
 object Util {
 
+    fun getRatingRange(): IntRange {
+        return 1..10
+    }
+
     fun getTime(partition: Int): Int {
         return when (partition) {
             1 -> R.string.time_1

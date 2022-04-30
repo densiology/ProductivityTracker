@@ -3,6 +3,7 @@ package com.dennis.productivitytracker.data
 import androidx.room.*
 import com.dennis.productivitytracker.data.entities.CommonTaskEntity
 import com.dennis.productivitytracker.data.entities.TaskEntity
+import com.dennis.productivitytracker.data.entities.relations.DateWithTasks
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -23,8 +24,9 @@ interface ProdTrackerDao {
     @Query("SELECT * FROM TaskEntity WHERE id = :id")
     fun getTaskById(id: Int): TaskEntity?
 
+    @Transaction
     @Query("SELECT * FROM TaskEntity")
-    fun getTasks(): Flow<List<TaskEntity>>
+    fun getTasks(): Flow<List<DateWithTasks>>
 
     @Query("SELECT * FROM CommonTaskEntity WHERE id = :id")
     fun getCommonTaskById(id: Int): CommonTaskEntity?

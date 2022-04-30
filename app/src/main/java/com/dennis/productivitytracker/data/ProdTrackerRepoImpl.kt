@@ -2,6 +2,7 @@ package com.dennis.productivitytracker.data
 
 import com.dennis.productivitytracker.data.entities.CommonTaskEntity
 import com.dennis.productivitytracker.data.entities.TaskEntity
+import com.dennis.productivitytracker.data.entities.relations.DateWithTasks
 import kotlinx.coroutines.flow.Flow
 
 class ProdTrackerRepoImpl(
@@ -28,7 +29,7 @@ class ProdTrackerRepoImpl(
         return dao.getTaskById(id)
     }
 
-    override fun getTasks(): Flow<List<TaskEntity>> {
+    override fun getTasks(): Flow<List<DateWithTasks>> {
         return dao.getTasks()
     }
 

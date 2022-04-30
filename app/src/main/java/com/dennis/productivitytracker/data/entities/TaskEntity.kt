@@ -8,7 +8,7 @@ import java.util.*
 data class TaskEntity(
     val task: String,
     val rating: Int,
-    val date: Date,
+    val date: String,
     val partitionStart: Int,
     val partitionEnd: Int,
     @PrimaryKey val id: Int? = null

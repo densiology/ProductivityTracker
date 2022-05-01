@@ -1,8 +1,13 @@
 package com.dennis.productivitytracker.ui.calendar_list
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dennis.productivitytracker.R
@@ -13,6 +18,7 @@ fun CalendarListScreen(
     onNavigate: (OneTimeUiEvent.Navigate) -> Unit,
     viewModel: CalendarListVM = hiltViewModel()
 ) {
+    val datesWithTasks = viewModel.datesWithTasks.collectAsState(initial = emptyList())
     val scaffoldState = rememberScaffoldState()
     LaunchedEffect(key1 = true) {
         viewModel.oneTimeUiEvent.collect { event ->
@@ -40,6 +46,12 @@ fun CalendarListScreen(
             )
         }
     ) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            items(datesWithTasks.value) { date ->
 
+            }
+        }
     }
 }

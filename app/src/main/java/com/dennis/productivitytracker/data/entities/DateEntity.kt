@@ -6,5 +6,6 @@ import androidx.room.PrimaryKey
 @Entity
 data class DateEntity(
     @PrimaryKey(autoGenerate = false)
-    val date: String
+    val date: String,
+    val rating: String
 )

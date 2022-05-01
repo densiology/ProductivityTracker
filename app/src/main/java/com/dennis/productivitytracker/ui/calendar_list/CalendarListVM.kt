@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,10 +17,19 @@ class CalendarListVM @Inject constructor(
     private val repository: ProdTrackerRepo
 ) : ViewModel() {
 
-    val tasks = repository.getTasks()
+    val datesWithTasks = repository.getTasks()
 
     private val _oneTimeUiEvent = Channel<OneTimeUiEvent>()
     val oneTimeUiEvent = _oneTimeUiEvent.receiveAsFlow()
+
+    init {
+        // get current date
+        // if current date is higher than the latest date in DB {
+        // { just fill new dates from latest date in DB to current date
+        // else if current date is lower than the latest date in DB {
+        //     && current date is higher than oldest date in DB { (not priority)
+        //     { fill new dates from oldest date in DB to current date
+    }
 
     fun onEvent(event: CalendarListEvent) {
         when (event) {
@@ -40,5 +50,15 @@ class CalendarListVM @Inject constructor(
         viewModelScope.launch {
             _oneTimeUiEvent.send(event)
         }
+    }
+
+    private fun stringToDate(strDate: String): Date {
+        // TODO conversion
+        return Date()
+    }
+
+    private fun dateToString(date: Date): String {
+        // TODO conversion
+        return ""
     }
 }

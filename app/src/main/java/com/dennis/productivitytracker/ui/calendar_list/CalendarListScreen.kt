@@ -50,7 +50,7 @@ fun CalendarListScreen(
             modifier = Modifier.fillMaxSize()
         ) {
             items(datesWithTasks.value) { date ->
-
+                // TODO also show time in tasks (for string referencing, relate to commonTasks)
             }
         }
     }

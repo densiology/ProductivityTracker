@@ -7,7 +7,7 @@ import java.util.*
 @Entity
 data class TaskEntity(
     val task: String,
-    val rating: Int,
+    val productivity: Int,
     val date: String,
     val partitionStart: Int,
     val partitionEnd: Int,

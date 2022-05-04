@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dennis.productivitytracker.util.OneTimeUiEvent
-import com.dennis.productivitytracker.util.Util
+import com.dennis.productivitytracker.util.DataUtil
 
 @Composable
 fun AddEditCommonTaskScreen(
@@ -81,7 +81,7 @@ fun AddEditCommonTaskScreen(
                 expanded = expanded,
                 onDismissRequest = { expanded = false },
             ) {
-                Util.getRatingRange().forEach { item ->
+                DataUtil.getRatingRange().forEach { item ->
                     DropdownMenuItem(
                         onClick = {
                             viewModel.onEvent(AddEditCommonTaskEvent.OnRatingChange(item))

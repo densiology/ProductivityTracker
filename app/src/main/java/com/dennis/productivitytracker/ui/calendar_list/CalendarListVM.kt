@@ -51,14 +51,4 @@ class CalendarListVM @Inject constructor(
             _oneTimeUiEvent.send(event)
         }
     }
-
-    private fun stringToDate(strDate: String): Date {
-        // TODO conversion
-        return Date()
-    }
-
-    private fun dateToString(date: Date): String {
-        // TODO conversion
-        return ""
-    }
 }

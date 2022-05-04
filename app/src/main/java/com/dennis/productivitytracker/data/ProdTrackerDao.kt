@@ -25,7 +25,7 @@ interface ProdTrackerDao {
     fun getTaskById(id: Int): TaskEntity?
 
     @Transaction
-    @Query("SELECT * FROM TaskEntity")
+    @Query("SELECT * FROM DateEntity")
     fun getTasks(): Flow<List<DateWithTasks>>
 
     @Query("SELECT * FROM CommonTaskEntity WHERE id = :id")

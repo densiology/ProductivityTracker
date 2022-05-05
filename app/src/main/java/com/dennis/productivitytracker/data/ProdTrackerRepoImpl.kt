@@ -1,6 +1,7 @@
 package com.dennis.productivitytracker.data
 
 import com.dennis.productivitytracker.data.entities.CommonTaskEntity
+import com.dennis.productivitytracker.data.entities.DateEntity
 import com.dennis.productivitytracker.data.entities.TaskEntity
 import com.dennis.productivitytracker.data.entities.relations.DateWithTasks
 import kotlinx.coroutines.flow.Flow
@@ -8,6 +9,10 @@ import kotlinx.coroutines.flow.Flow
 class ProdTrackerRepoImpl(
     private val dao: ProdTrackerDao
 ) : ProdTrackerRepo {
+
+    override suspend fun insertDate(date: DateEntity) {
+        dao.insertDate(date)
+    }
 
     override suspend fun insertTask(task: TaskEntity) {
         dao.insertTask(task)

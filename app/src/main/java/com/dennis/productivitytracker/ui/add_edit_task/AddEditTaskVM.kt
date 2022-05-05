@@ -8,11 +8,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dennis.productivitytracker.data.ProdTrackerRepo
 import com.dennis.productivitytracker.data.entities.TaskEntity
+import com.dennis.productivitytracker.util.DataUtil.toSimpleString
 import com.dennis.productivitytracker.util.OneTimeUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,7 +29,7 @@ class AddEditTaskVM @Inject constructor(
     var strTask by mutableStateOf("")
         private set
 
-    var rating by mutableStateOf(1)
+    var priority by mutableStateOf(1)
         private set
 
     var partitionStart by mutableStateOf(0)
@@ -36,10 +38,10 @@ class AddEditTaskVM @Inject constructor(
     var partitionEnd by mutableStateOf(0)
         private set
 
-    var disabledStart by mutableStateOf<List<Int>?>(null)
+    var disabledStart by mutableStateOf<MutableList<Int>?>(null)
         private set
 
-    var disabledEnd by mutableStateOf<List<Int>?>(null)
+    var disabledEnd by mutableStateOf<MutableList<Int>?>(null)
         private set
 
     private val _oneTimeUiEvent = Channel<OneTimeUiEvent>()
@@ -57,22 +59,38 @@ class AddEditTaskVM @Inject constructor(
     fun onEvent(event: AddEditTaskEvent) {
         when (event) {
             is AddEditTaskEvent.OnAddTaskClick -> {
-
+                viewModelScope.launch {
+                    repository.insertTask(
+                        TaskEntity(
+                            task = strTask,
+                            priority = priority,
+                            date = task?.date ?: Date().toSimpleString(),
+                            partitionStart = partitionStart,
+                            partitionEnd = partitionEnd
+                        )
+                    )
+                    sendUiEvent(OneTimeUiEvent.PopBackStack)
+                }
             }
             is AddEditTaskEvent.OnDeleteTaskClick -> {
-
+                viewModelScope.launch {
+                    repository.deleteTask(event.task)
+                    sendUiEvent(OneTimeUiEvent.PopBackStack)
+                }
             }
-            is AddEditTaskEvent.OnRatingChange -> {
-
+            is AddEditTaskEvent.OnPriorityChange -> {
+                priority = event.priority
             }
             is AddEditTaskEvent.OnTaskChange -> {
-
+                strTask = event.task
             }
             is AddEditTaskEvent.OnTimeEndChange -> {
-                // also add it on disabledStart
+                partitionEnd = event.partitionEnd
+                disabledStart?.add(event.partitionEnd)
             }
             is AddEditTaskEvent.OnTimeStartChange -> {
-                // also add it on disabledEnd
+                partitionStart = event.partitionStart
+                disabledEnd?.add(event.partitionStart)
             }
         }
     }

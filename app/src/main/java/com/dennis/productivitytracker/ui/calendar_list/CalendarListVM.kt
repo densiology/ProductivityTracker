@@ -3,6 +3,9 @@ package com.dennis.productivitytracker.ui.calendar_list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dennis.productivitytracker.data.ProdTrackerRepo
+import com.dennis.productivitytracker.data.entities.DateEntity
+import com.dennis.productivitytracker.util.DataUtil.toDate
+import com.dennis.productivitytracker.util.DataUtil.toSimpleString
 import com.dennis.productivitytracker.util.Routes
 import com.dennis.productivitytracker.util.OneTimeUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,12 +26,27 @@ class CalendarListVM @Inject constructor(
     val oneTimeUiEvent = _oneTimeUiEvent.receiveAsFlow()
 
     init {
-        // get current date
-        // if current date is higher than the latest date in DB {
-        // { just fill new dates from latest date in DB to current date
-        // else if current date is lower than the latest date in DB {
-        //     && current date is higher than oldest date in DB { (not priority)
-        //     { fill new dates from oldest date in DB to current date
+        viewModelScope.launch {
+            datesWithTasks.collect { list ->
+                val newestDate = list.first().date.date.toDate()
+                val currentDate = Date()
+                if (currentDate.after(newestDate)) {
+                    repository.insertDate(
+                        DateEntity(
+                            date = currentDate.toSimpleString(),
+                            rating = "0"
+                        )
+                    )
+                }
+                // TODO add rest of dates (and change logic of dates)
+//                val oldestDate = list.last().date.date.toDate()
+//                if (currentDate.after(oldestDate)) {
+//                    // fill dates from oldest to current
+//                } else if (currentDate.before(oldestDate)) {
+//                    // just add the current date to DB
+//                }
+            }
+        }
     }
 
     fun onEvent(event: CalendarListEvent) {
@@ -42,7 +60,6 @@ class CalendarListVM @Inject constructor(
             is CalendarListEvent.OnCommonTaskListClick -> {
                 sendUiEvent(OneTimeUiEvent.Navigate(Routes.COMMON_TASK_LIST))
             }
-
         }
     }
 

@@ -4,7 +4,7 @@ import com.dennis.productivitytracker.data.entities.TaskEntity
 
 sealed class AddEditTaskEvent {
     data class OnTaskChange(val task: String) : AddEditTaskEvent()
-    data class OnRatingChange(val rating: Int) : AddEditTaskEvent()
+    data class OnPriorityChange(val priority: Int) : AddEditTaskEvent()
     data class OnTimeStartChange(val partitionStart: Int) : AddEditTaskEvent()
     data class OnTimeEndChange(val partitionEnd: Int) : AddEditTaskEvent()
     data class OnDeleteTaskClick(val task: TaskEntity) : AddEditTaskEvent()

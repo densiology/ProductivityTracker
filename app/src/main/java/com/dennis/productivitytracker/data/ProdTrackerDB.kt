@@ -12,7 +12,8 @@ import com.dennis.productivitytracker.data.entities.TaskEntity
         CommonTaskEntity::class,
         DateEntity::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 
 abstract class ProdTrackerDB : RoomDatabase() {

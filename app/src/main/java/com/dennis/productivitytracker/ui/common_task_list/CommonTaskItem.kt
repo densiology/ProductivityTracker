@@ -45,7 +45,7 @@ fun CommonTaskItem(
             }
         }
         Text(
-            text = commonTask.rating.toString()
+            text = commonTask.priority.toString()
         )
     }
 }

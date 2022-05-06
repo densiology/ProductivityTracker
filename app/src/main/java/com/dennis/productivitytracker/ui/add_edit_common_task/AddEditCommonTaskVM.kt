@@ -27,7 +27,7 @@ class AddEditCommonTaskVM @Inject constructor(
     var strCommonTask by mutableStateOf("")
         private set
 
-    var rating by mutableStateOf(1)
+    var priority by mutableStateOf(1)
         private set
 
     private val _oneTimeUiEvent = Channel<OneTimeUiEvent>()
@@ -40,7 +40,7 @@ class AddEditCommonTaskVM @Inject constructor(
                 viewModelScope.launch {
                     repository.getCommonTaskById(ctId)?.let { commonTask ->
                         strCommonTask = commonTask.task
-                        rating = commonTask.rating
+                        priority = commonTask.priority
                         this@AddEditCommonTaskVM.commonTask = commonTask
                     }
                 }
@@ -54,14 +54,14 @@ class AddEditCommonTaskVM @Inject constructor(
                 strCommonTask = event.commonTask
             }
             is AddEditCommonTaskEvent.OnRatingChange -> {
-                rating = event.rating
+                priority = event.priority
             }
             is AddEditCommonTaskEvent.OnSaveCommonTaskClick -> {
                 viewModelScope.launch {
                     repository.insertCommonTask(
                         CommonTaskEntity(
                             task = strCommonTask,
-                            rating = rating,
+                            priority = priority,
                             id = commonTask?.id
                         )
                     )

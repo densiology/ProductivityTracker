@@ -66,10 +66,10 @@ fun AddEditCommonTaskScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedTextField(
-                value = viewModel.rating.toString(),
+                value = viewModel.priority.toString(),
                 onValueChange = {},
                 modifier = Modifier.fillMaxWidth(),
-                label = { Text("Rating") },
+                label = { Text("Priority") },
                 trailingIcon = {
                     Icon(
                         imageVector = icon,

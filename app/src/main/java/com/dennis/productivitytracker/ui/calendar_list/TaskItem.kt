@@ -24,7 +24,7 @@ fun TaskItem(
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = task.rating.toString(),
+            text = task.priority.toString(),
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold
         )

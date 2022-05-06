@@ -32,6 +32,9 @@ class AddEditTaskVM @Inject constructor(
     var priority by mutableStateOf(1)
         private set
 
+    var date by mutableStateOf("")
+        private set
+
     var partitionStart by mutableStateOf(0)
         private set
 
@@ -54,6 +57,21 @@ class AddEditTaskVM @Inject constructor(
         // { if ==partitionStart, put in disabledStart
         // { if !=partitionStart && != partitionEnd, put in both disabled
         // { if ==partitionEnd, put in disabledEnd
+        val taskId = savedStateHandle.get<Int>("")
+        if(taskId != -1) {
+            taskId?.let { tId ->
+                viewModelScope.launch {
+                    repository.getTaskById(tId)?.let { task ->
+                        strTask = task.task
+                        priority = task.priority
+                        date = task.date
+                        partitionStart = task.partitionStart
+                        partitionEnd = task.partitionEnd
+                        this@AddEditTaskVM.task = task
+                    }
+                }
+            }
+        }
     }
 
     fun onEvent(event: AddEditTaskEvent) {

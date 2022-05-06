@@ -17,11 +17,15 @@ object DataUtil {
         return SimpleDateFormat("yyyy-MM-dd").format(this)
     }
 
-    fun getRatingRange(): IntRange {
+    fun getPriorityRange(): IntRange {
         return 1..10
     }
 
-    fun getTime(partition: Int): Int {
+    fun getPartitionRange() : IntRange {
+        return 1..96
+    }
+
+    fun getTimeResource(partition: Int): Int {
         return when (partition) {
             1 -> R.string.time_1
             2 -> R.string.time_2

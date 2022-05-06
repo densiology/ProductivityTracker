@@ -81,7 +81,7 @@ fun AddEditCommonTaskScreen(
                 expanded = expanded,
                 onDismissRequest = { expanded = false },
             ) {
-                DataUtil.getRatingRange().forEach { item ->
+                DataUtil.getPriorityRange().forEach { item ->
                     DropdownMenuItem(
                         onClick = {
                             viewModel.onEvent(AddEditCommonTaskEvent.OnRatingChange(item))

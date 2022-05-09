@@ -21,30 +21,40 @@ fun DateItem(
     viewModel: CalendarListVM = hiltViewModel(),
 ) {
     Column(
-        modifier = Modifier.border(border = BorderStroke(width = 1.dp, Color.LightGray)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .border(border = BorderStroke(width = 1.dp, Color.LightGray)),
         verticalArrangement = Arrangement.Center
     ) {
         Row(
-            modifier = Modifier.weight(0.2f),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = dateWithTasks.date.date,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Text(
-                text = "Rating",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
-        Row(
-            modifier = Modifier.weight(0.8f),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier.weight(0.7f)
+                Modifier.weight(2f)
+            ) {
+                Text(
+                    text = dateWithTasks.date.date,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Column(
+                Modifier.weight(1f)
+            ) {
+                Text(
+                    text = "Productivity",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+        Row(
+            Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
+                modifier = Modifier.weight(2f)
             ) {
                 for (task in dateWithTasks.tasks) {
                     TaskItem(
@@ -61,13 +71,13 @@ fun DateItem(
             }
             Column(
                 modifier = Modifier
-                    .weight(0.3f)
+                    .weight(1f)
                     .clickable {
                         viewModel.onEvent(CalendarListEvent.OnAddTaskClick(dateWithTasks.date.date))
                     },
             ) {
                 Text(
-                    text = dateWithTasks.date.rating,
+                    text = dateWithTasks.date.productivity,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )

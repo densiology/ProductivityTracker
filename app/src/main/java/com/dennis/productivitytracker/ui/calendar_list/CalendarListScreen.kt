@@ -49,8 +49,10 @@ fun CalendarListScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            items(datesWithTasks.value) { date ->
-                // TODO also show time in tasks (for string referencing, relate to commonTasks)
+            items(datesWithTasks.value) { dateWithTasks ->
+                DateItem(
+                    dateWithTasks = dateWithTasks
+                )
             }
         }
     }

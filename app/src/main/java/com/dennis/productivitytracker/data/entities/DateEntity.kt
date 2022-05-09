@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class DateEntity(
     @PrimaryKey(autoGenerate = false)
     val date: String,
-    val rating: String
+    val productivity: String
 )

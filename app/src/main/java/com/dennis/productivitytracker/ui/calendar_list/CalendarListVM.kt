@@ -28,13 +28,22 @@ class CalendarListVM @Inject constructor(
     init {
         viewModelScope.launch {
             datesWithTasks.collect { list ->
-                val newestDate = list.first().date.date.toDate()
                 val currentDate = Date()
-                if (currentDate.after(newestDate)) {
+                if (list.isNotEmpty()) {
+                    val newestDate = list.first().date.date.toDate()
+                    if (currentDate.after(newestDate)) {
+                        repository.insertDate(
+                            DateEntity(
+                                date = currentDate.toSimpleString(),
+                                productivity = "0"
+                            )
+                        )
+                    }
+                } else {
                     repository.insertDate(
                         DateEntity(
                             date = currentDate.toSimpleString(),
-                            rating = "0"
+                            productivity = "0"
                         )
                     )
                 }

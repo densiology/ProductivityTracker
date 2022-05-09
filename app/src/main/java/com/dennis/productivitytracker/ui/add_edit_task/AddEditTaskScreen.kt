@@ -11,10 +11,10 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.dennis.productivitytracker.ui.add_edit_common_task.AddEditCommonTaskEvent
+import com.dennis.productivitytracker.R
 import com.dennis.productivitytracker.util.DataUtil
 import com.dennis.productivitytracker.util.OneTimeUiEvent
 
@@ -103,7 +103,8 @@ fun AddEditTaskScreen(
                             expandedPartitionStart = false
                         }
                     ) {
-                        Text(text = stringResource(DataUtil.getTimeResource(item)))
+                        //Text(text = stringResource(DataUtil.getTimeResource(item)))
+                        Text(text = stringArrayResource(id = R.array.time_array)[item])
                     }
                 }
             }
@@ -136,7 +137,8 @@ fun AddEditTaskScreen(
                             expandedPartitionEnd = false
                         }
                     ) {
-                        Text(text = stringResource(DataUtil.getTimeResource(item)))
+                        //Text(text = stringResource(DataUtil.getTimeResource(item)))
+                        Text(text = stringArrayResource(id = R.array.time_array)[item])
                     }
                 }
             }

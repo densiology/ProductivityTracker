@@ -1,102 +1,104 @@
 <resources>
     <string name="app_name">Productivity Tracker</string>
-    <string name="rating">Rating</string>
+    <string name="productivity">Productivity</string>
 
-    <string name="time_0">--:--</string>
-    <string name="time_1">12:00 AM</string>
-    <string name="time_2">12:15 AM</string>
-    <string name="time_3">12:30 AM</string>
-    <string name="time_4">12:45 AM</string>
-    <string name="time_5">1:00 AM</string>
-    <string name="time_6">1:15 AM</string>
-    <string name="time_7">1:30 AM</string>
-    <string name="time_8">1:45 AM</string>
-    <string name="time_9">2:00 AM</string>
-    <string name="time_10">2:15 AM</string>
-    <string name="time_11">2:30 AM</string>
-    <string name="time_12">2:45 AM</string>
-    <string name="time_13">3:00 AM</string>
-    <string name="time_14">3:15 AM</string>
-    <string name="time_15">3:30 AM</string>
-    <string name="time_16">3:45 AM</string>
-    <string name="time_17">4:00 AM</string>
-    <string name="time_18">4:15 AM</string>
-    <string name="time_19">4:30 AM</string>
-    <string name="time_20">4:45 AM</string>
-    <string name="time_21">5:00 AM</string>
-    <string name="time_22">5:15 AM</string>
-    <string name="time_23">5:30 AM</string>
-    <string name="time_24">5:45 AM</string>
-    <string name="time_25">6:00 AM</string>
-    <string name="time_26">6:15 AM</string>
-    <string name="time_27">6:30 AM</string>
-    <string name="time_28">6:45 AM</string>
-    <string name="time_29">7:00 AM</string>
-    <string name="time_30">7:15 AM</string>
-    <string name="time_31">7:30 AM</string>
-    <string name="time_32">7:45 AM</string>
-    <string name="time_33">8:00 AM</string>
-    <string name="time_34">8:15 AM</string>
-    <string name="time_35">8:30 AM</string>
-    <string name="time_36">8:45 AM</string>
-    <string name="time_37">9:00 AM</string>
-    <string name="time_38">9:15 AM</string>
-    <string name="time_39">9:30 AM</string>
-    <string name="time_40">9:45 AM</string>
-    <string name="time_41">10:00 AM</string>
-    <string name="time_42">10:15 AM</string>
-    <string name="time_43">10:30 AM</string>
-    <string name="time_44">10:45 AM</string>
-    <string name="time_45">11:00 AM</string>
-    <string name="time_46">11:15 AM</string>
-    <string name="time_47">11:30 AM</string>
-    <string name="time_48">11:45 AM</string>
-    <string name="time_49">12:00 PM</string>
-    <string name="time_50">12:15 PM</string>
-    <string name="time_51">12:30 PM</string>
-    <string name="time_52">12:45 PM</string>
-    <string name="time_53">1:00 PM</string>
-    <string name="time_54">1:15 PM</string>
-    <string name="time_55">1:30 PM</string>
-    <string name="time_56">1:45 PM</string>
-    <string name="time_57">2:00 PM</string>
-    <string name="time_58">2:15 PM</string>
-    <string name="time_59">2:30 PM</string>
-    <string name="time_60">2:45 PM</string>
-    <string name="time_61">3:00 PM</string>
-    <string name="time_62">3:15 PM</string>
-    <string name="time_63">3:30 PM</string>
-    <string name="time_64">3:45 PM</string>
-    <string name="time_65">4:00 PM</string>
-    <string name="time_66">4:15 PM</string>
-    <string name="time_67">4:30 PM</string>
-    <string name="time_68">4:45 PM</string>
-    <string name="time_69">5:00 PM</string>
-    <string name="time_70">5:15 PM</string>
-    <string name="time_71">5:30 PM</string>
-    <string name="time_72">5:45 PM</string>
-    <string name="time_73">6:00 PM</string>
-    <string name="time_74">6:15 PM</string>
-    <string name="time_75">6:30 PM</string>
-    <string name="time_76">6:45 PM</string>
-    <string name="time_77">7:00 PM</string>
-    <string name="time_78">7:15 PM</string>
-    <string name="time_79">7:30 PM</string>
-    <string name="time_80">7:45 PM</string>
-    <string name="time_81">8:00 PM</string>
-    <string name="time_82">8:15 PM</string>
-    <string name="time_83">8:30 PM</string>
-    <string name="time_84">8:45 PM</string>
-    <string name="time_85">9:00 PM</string>
-    <string name="time_86">9:15 PM</string>
-    <string name="time_87">9:30 PM</string>
-    <string name="time_88">9:45 PM</string>
-    <string name="time_89">10:00 PM</string>
-    <string name="time_90">10:15 PM</string>
-    <string name="time_91">10:30 PM</string>
-    <string name="time_92">10:45 PM</string>
-    <string name="time_93">11:00 PM</string>
-    <string name="time_94">11:15 PM</string>
-    <string name="time_95">11:30 PM</string>
-    <string name="time_96">11:45 PM</string>
+    <string-array name="time_array">
+        <item>--:--</item>
+        <item>12:00 AM</item>
+        <item>12:15 AM</item>
+        <item>12:30 AM</item>
+        <item>12:45 AM</item>
+        <item>1:00 AM</item>
+        <item>1:15 AM</item>
+        <item>1:30 AM</item>
+        <item>1:45 AM</item>
+        <item>2:00 AM</item>
+        <item>2:15 AM</item>
+        <item>2:30 AM</item>
+        <item>2:45 AM</item>
+        <item>3:00 AM</item>
+        <item>3:15 AM</item>
+        <item>3:30 AM</item>
+        <item>3:45 AM</item>
+        <item>4:00 AM</item>
+        <item>4:15 AM</item>
+        <item>4:30 AM</item>
+        <item>4:45 AM</item>
+        <item>5:00 AM</item>
+        <item>5:15 AM</item>
+        <item>5:30 AM</item>
+        <item>5:45 AM</item>
+        <item>6:00 AM</item>
+        <item>6:15 AM</item>
+        <item>6:30 AM</item>
+        <item>6:45 AM</item>
+        <item>7:00 AM</item>
+        <item>7:15 AM</item>
+        <item>7:30 AM</item>
+        <item>7:45 AM</item>
+        <item>8:00 AM</item>
+        <item>8:15 AM</item>
+        <item>8:30 AM</item>
+        <item>8:45 AM</item>
+        <item>9:00 AM</item>
+        <item>9:15 AM</item>
+        <item>9:30 AM</item>
+        <item>9:45 AM</item>
+        <item>10:00 AM</item>
+        <item>10:15 AM</item>
+        <item>10:30 AM</item>
+        <item>10:45 AM</item>
+        <item>11:00 AM</item>
+        <item>11:15 AM</item>
+        <item>11:30 AM</item>
+        <item>11:45 AM</item>
+        <item>12:00 PM</item>
+        <item>12:15 PM</item>
+        <item>12:30 PM</item>
+        <item>12:45 PM</item>
+        <item>1:00 PM</item>
+        <item>1:15 PM</item>
+        <item>1:30 PM</item>
+        <item>1:45 PM</item>
+        <item>2:00 PM</item>
+        <item>2:15 PM</item>
+        <item>2:30 PM</item>
+        <item>2:45 PM</item>
+        <item>3:00 PM</item>
+        <item>3:15 PM</item>
+        <item>3:30 PM</item>
+        <item>3:45 PM</item>
+        <item>4:00 PM</item>
+        <item>4:15 PM</item>
+        <item>4:30 PM</item>
+        <item>4:45 PM</item>
+        <item>5:00 PM</item>
+        <item>5:15 PM</item>
+        <item>5:30 PM</item>
+        <item>5:45 PM</item>
+        <item>6:00 PM</item>
+        <item>6:15 PM</item>
+        <item>6:30 PM</item>
+        <item>6:45 PM</item>
+        <item>7:00 PM</item>
+        <item>7:15 PM</item>
+        <item>7:30 PM</item>
+        <item>7:45 PM</item>
+        <item>8:00 PM</item>
+        <item>8:15 PM</item>
+        <item>8:30 PM</item>
+        <item>8:45 PM</item>
+        <item>9:00 PM</item>
+        <item>9:15 PM</item>
+        <item>9:30 PM</item>
+        <item>9:45 PM</item>
+        <item>10:00 PM</item>
+        <item>10:15 PM</item>
+        <item>10:30 PM</item>
+        <item>10:45 PM</item>
+        <item>11:00 PM</item>
+        <item>11:15 PM</item>
+        <item>11:30 PM</item>
+        <item>11:45 PM</item>
+    </string-array>
 </resources>
